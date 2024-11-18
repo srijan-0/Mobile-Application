@@ -1,15 +1,49 @@
+// import 'package:flutter/material.dart';
+
+// void main() => runApp(MyApp());
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(title: Text('Hello World App')),
+//         body: Center(child: Text('Hello, World!')),
+//       ),
+//     );
+//   }
+// }
 
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('Hello World App')),
-        body: Center(child: Text('Hello, World!')),
+        appBar: AppBar(title: Text('Counter App')),
+        body: Center(
+          child: Text('Counter: $_counter', style: TextStyle(fontSize: 24)),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          child: Icon(Icons.add),
+        ),
       ),
     );
   }
